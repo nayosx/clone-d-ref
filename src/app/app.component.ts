@@ -1,5 +1,4 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Component, OnDestroy, OnInit, PLATFORM_ID, afterRender, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterOutlet, Router } from '@angular/router';
 import { AuthService } from '@shared/services/auth/auth.service';
 import { NavbarComponent } from './layout/navbar/navbar.component';
@@ -23,24 +22,24 @@ export class AppComponent implements OnInit, OnDestroy {
   private _subscriptions!:Subscription;
 
   private _param:string = 'token';
-  private _valueToken:string;
+  private _valueToken:string = '';
   private _tokenExternal:string = '';
 
   isLoading:boolean = false;
   isError:boolean = true;
 
   constructor() {
-    this._valueToken = this._storeServ.getSession<string>('token') ?? '';
+    //this._valueToken = this._storeServ.getSession<string>('token') ?? '';
   }
 
   ngOnDestroy(): void {
-    if(this._subscriptions) {
+    /* if(this._subscriptions) {
       this._subscriptions.unsubscribe();
-    }
+    } */
   }
   
   ngOnInit(): void {
-    this.evaluateTokenSession();
+    // this.evaluateTokenSession();
   }
 
   evaluateTokenSession():void {
@@ -49,7 +48,7 @@ export class AppComponent implements OnInit, OnDestroy {
       if (this._tokenExternal !== '' && this._valueToken === '') {
         this.login(this._tokenExternal);
       } else if(this._tokenExternal === '' && this._valueToken !== '') {
-        this._nextMoveTo();
+        console.log('moverse a otro lado');
       }
     });
   }

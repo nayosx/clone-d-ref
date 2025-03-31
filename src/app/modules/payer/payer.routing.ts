@@ -1,18 +1,22 @@
 import {Routes} from '@angular/router';
 import { ROUTES_PATH } from '../../core/routes';
+import { authGuard } from '@core/guards/auth.guard';
 
 export const PAYER_ROUTES:Routes = [
     {
         path: ROUTES_PATH.PAYER_HOME,
         loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent),
+        canActivate: [authGuard]
     },
     {
         path: ROUTES_PATH.PAYER_BUSINESS,
         loadComponent: () => import('./pages/business/business.component').then(m => m.BusinessComponent),
+        canActivate: [authGuard]
     },
     {
         path: ROUTES_PATH.PAYER_COLLECTORS,
         loadComponent: () => import('./pages/collectors/collectors.component').then(m => m.CollectorsComponent),
+        canActivate: [authGuard]
     },
     {
         path: ROUTES_PATH.PAYER_LINKUP,
