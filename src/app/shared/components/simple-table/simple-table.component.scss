@@ -1,0 +1,69 @@
+.card {
+  padding: 1rem;
+}
+
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 1.5rem;
+  text-align: left;
+  font-family: sans-serif;
+}
+
+.empty-icon {
+  opacity: 0.4;
+}
+
+.empty-content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.empty-content p {
+  margin: 0.3rem 0 0;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+
+:host ::ng-deep .p-datatable {
+  border: 1px solid var(--table-bg-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-header {
+  background: transparent;
+  border: none;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  border: 1px solid var(--table-bg-color);
+  padding: 1rem;
+  color: var(--black);
+  background-color: var(--gray-bda);
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th:first-child {
+  border-top-left-radius: 10px;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th:last-child {
+  border-top-right-radius: 10px;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  border: 1px solid var(--table-bg-color);
+  padding: 1rem;
+  color: var(--black);
+}
+
+:host ::ng-deep .p-datatable .p-paginator {
+  border: 1px solid var(--table-bg-color);
+  border-radius: 0 0 10px 10px;
+}
+

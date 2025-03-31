@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use './config' as *;
+
+@mixin color($color-name) {
+    color: map.get($colors, $color-name);
+}
+
+@mixin background($color-name) {
+    background-color: map.get($colors, $color-name);
+}

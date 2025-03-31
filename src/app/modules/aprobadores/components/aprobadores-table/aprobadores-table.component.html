@@ -1,0 +1,44 @@
+@if(readyToRender){
+<div class="card">
+  <app-tabs-table />
+  <app-table-filters />
+  <p-table [value]="value" [loading]="loading" [paginator]="true" [rows]="rows" [totalRecords]="totalRecords || 0"
+    [first]="currentPage * rows" [tableStyle]="{ 'min-width': '100%' }" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros">
+    <ng-template pTemplate="header">
+      <tr>
+        @for(col of columns; track $index){
+        <th>{{ col.header }}</th>
+        }
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-rowData>
+      <tr>
+        @for (col of columns; track $index) {
+        <td>
+          @if(isCheckboxColumn(col.field)) {
+          <div class="flex">
+            <app-checkbox (checkedChange)="onCheckboxChange($event, rowData)" [type]="col.field"
+              [label]="getCheckboxLabel(col.field)" [checked]="rowData[col.field]" />
+          </div>
+          } @else if(isStateColumn(col.field)){
+          <app-tag [type]="getTypeTag(rowData[col.field])" [label]="rowData[col.field]"></app-tag>
+          } @else {
+          {{ rowData[col.field] }}
+          }
+        </td>
+        }
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td [attr.colspan]="columns.length">
+          <app-empty-message />
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+}

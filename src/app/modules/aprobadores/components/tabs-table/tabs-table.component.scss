@@ -1,0 +1,19 @@
+.tab-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  gap: 10px;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  padding: 20px;
+}
+
+.tab-selected{
+  background-color: var(--tabs-color);
+  border-bottom: 5px solid #000;
+  font-weight: 700;
+  & i{
+    font-weight: 600;
+  }
+}

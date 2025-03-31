@@ -1,0 +1,14 @@
+<p-card styleClass="mt-4">
+  <div class="flex justify-content-between align-content-center flex-wrap">
+    <img src="https://micuentab2b.tigo.com.sv/sites/tigob2bselfcare.sv/files/tigobusiness.png" alt="tigo logo" />
+    <p>Ultima actualizacion: DD/MM/AAAA 3:38 p.m.</p>
+  </div>
+  <h3>Datos de pago</h3>
+  <div class="card-contaniner">
+    <app-info-card [infoList]="infoCards[0]" />
+    <app-info-card [infoList]="infoCards[1]" />
+  </div>
+  <div class="card">
+    <app-aprobadores-table [columns]="columns" [value]="aprobadores" />
+  </div>
+</p-card>

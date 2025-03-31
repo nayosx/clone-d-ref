@@ -1,0 +1,32 @@
+.filter-table{
+  width: 100%;
+  background-color: var(--white);
+  border: 1.5px solid var(--table-bg-color);
+  border-bottom: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  @media screen and (min-width: 768px){
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60px;
+
+  }
+
+  & .button-filter{
+    background-color: transparent;
+    padding: 10px ;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    & i{
+      font-size: 1.5rem;
+    }
+  }
+}

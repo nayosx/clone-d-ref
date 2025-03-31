@@ -1,0 +1,30 @@
+::ng-deep .p-confirm-dialog .p-dialog-footer {
+  justify-content: center;
+  gap: 1rem;
+}
+
+::ng-deep .p-button-secondary .custom-reject {
+  background-color: #e5e7eb;
+  color: #111827;
+  border: none;
+}
+
+::ng-deep .p-confirmdialog .p-dialog-content {
+  justify-content: center;
+}
+
+
+::ng-deep .p-confirmdialog {
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background-color: red;
+}
+
+::ng-deep .reverse .p-dialog-footer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}

@@ -1,0 +1,12 @@
+<div class="flex items-center gap-2 radio-container" [ngClass]="colorClass">
+  <p-radiobutton
+    class="radio"
+    [value]="value"
+    [(ngModel)]="modelValue"
+    [inputId]="inputId"
+    [name]="group"
+    [size]="size"
+    (ngModelChange)="onModelChange($event)"
+  />
+  <label [for]="inputId">{{ label }}</label>
+</div>

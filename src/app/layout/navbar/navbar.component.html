@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <div class="flex align-items-center justify-content-center gap-2">
+    <button class="arrow" (click)="goBack()"><i class="pi pi-angle-left"></i></button>
+    <span class="brand-name">Davivienda</span>
+  </div>
+  <div class="flex align-items-center justify-content-center gap-2">
+    <p-avatar label="OR" shape="square" styleClass="gray" />
+    <div class="flex flex-column">
+      <span class="user-name">Oscar Rodriguez</span>
+      <span class="text-sm">Aprobador</span>
+    </div>
+
+    <p-button #menuBtn styleClass="p-button-text p-button-rounded p-button-padding" (click)="menu.toggle($event)">
+      <i class="pi pi-ellipsis-v black"></i>
+    </p-button>
+
+    <p-menu #menu [popup]="true" [model]="menuItems">
+    </p-menu>
+  </div>
+</nav>

@@ -1,0 +1,7 @@
+<div class="button-box" [ngClass]="type === 'rechazar' ? 'rechazar-button' : 'aprobar-button'" (click)="toggle()"
+  [class.checked]="checked">
+  <p-checkbox [binary]="true" [ngModel]="checked" styleClass="checkbox-style" [disabled]="disabled"
+    [checkboxIcon]="type === 'rechazar' ? 'pi pi-times' : 'pi pi-check'">
+  </p-checkbox>
+  <span class="rechazar-label">{{ label }}</span>
+</div>

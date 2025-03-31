@@ -1,0 +1,15 @@
+<div class="flex flex-column md:flex-row justify-content-between align-items-center mb-2">
+  <div class="flex justify-content-start align-content-center border-bottom-1 mb-3">
+    <button class="tab-button tab-selected">
+      <i class="pi pi-bell"></i>
+      <span>Pagos pendientes</span>
+    </button>
+    <button class="tab-button">
+      <i class="pi pi-history"></i>
+      <span>Historial de pagos</span>
+    </button>
+  </div>
+  <app-confirm-dialog />
+  <p-button (onClick)="aplicar()" styleClass="px-5" rounded="true">Aplicar <i class="pi pi-arrow-right"></i>
+  </p-button>
+</div>

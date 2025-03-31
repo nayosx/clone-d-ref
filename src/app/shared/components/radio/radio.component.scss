@@ -1,0 +1,75 @@
+
+.radio{
+  --p-radiobutton-icon-checked-color: transparent;
+  --p-radiobutton-icon-checked-hover-color: transparent;
+}
+
+.radio-container {
+  padding: 5px 10px;
+}
+
+.radio-pink {
+  border-radius: 20px;
+  --p-radiobutton-background:var(--red-bda);
+  --p-radiobutton-border-color:var(--red-bda);
+  --p-radiobutton-hover-border-color:var(--red-bda);
+}
+
+.radio-pink-checked{
+  border: 1.5px solid var(--red-bda);
+  --p-radiobutton-checked-background:var(--red-bda);
+  --p-radiobutton-checked-border-color:var(--red-bda);
+  --p-radiobutton-checked-hover-background:var(--red-bda);
+  --p-radiobutton-checked-hover-border-color:var(--red-bda);
+  --p-radiobutton-checked-focus-border-color:var(--red-bda);
+}
+
+.radio-green {
+  border-radius: 20px;
+  --p-radiobutton-background:var(--green-bda);
+  --p-radiobutton-border-color:var(--green-bda);
+  --p-radiobutton-hover-border-color:var(--green-bda);
+}
+
+.radio-green-checked{
+  border: 1.5px solid var(--green-bda);
+  --p-radiobutton-checked-background:var(--green-bda);
+  --p-radiobutton-checked-border-color:var(--green-bda);
+  --p-radiobutton-checked-hover-background:var(--green-bda);
+  --p-radiobutton-checked-hover-border-color:var(--green-bda);
+  --p-radiobutton-checked-focus-border-color:var(--green-bda);
+}
+
+.radio-gray {
+  border-radius: 20px;
+  --p-radiobutton-background:var(--gray-bda-dark);
+  --p-radiobutton-border-color:var(--gray-bda-dark);
+  --p-radiobutton-hover-border-color:var(--gray-bda-dark);
+}
+
+.radio-gray-checked{
+  border: 1.5px solid var(--gray-bda-dark);
+  --p-radiobutton-checked-background:var(--gray-bda-dark);
+  --p-radiobutton-checked-border-color:var(--gray-bda-dark);
+  --p-radiobutton-checked-hover-background:var(--gray-bda-dark);
+  --p-radiobutton-checked-hover-border-color:var(--gray-bda-dark);
+  --p-radiobutton-checked-focus-border-color:var(--gray-bda-dark);
+}
+
+.radio-yellow {
+  border-radius: 20px;
+  --p-radiobutton-background:var(--ambar-bda);
+  --p-radiobutton-border-color:var(--ambar-bda);
+  --p-radiobutton-hover-border-color:var(--ambar-bda);
+}
+
+.radio-yellow-checked{
+  border: 1.5px solid var(--ambar-bda);
+  --p-radiobutton-checked-background:var(--ambar-bda);
+  --p-radiobutton-checked-border-color:var(--ambar-bda);
+  --p-radiobutton-checked-hover-background:var(--ambar-bda);
+  --p-radiobutton-checked-hover-border-color:var(--ambar-bda);
+  --p-radiobutton-checked-focus-border-color:var(--ambar-bda);
+}
+
+

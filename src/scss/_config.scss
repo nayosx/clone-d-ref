@@ -1,0 +1,39 @@
+$colors: (
+    'primary-bda': #e1251b,
+    'dark': #707070,
+    'black': #000000,
+
+    'ambar-bda': #FCD199,
+    'ambar-bda-dark': #CC7615,
+
+    'red-bda': #FFC2BF,
+    'red-bda-dark': #E32F25,
+
+    'green-bda': #ACFCC2,
+    'green-bda-dark': #10722B,
+
+    'green-v1': #BDF4ED,
+    'green-v1-dark': #00A590,
+
+    'green-v2': #4AEC5A,
+
+
+    'cyan-bda': #CDF0FD,
+    'cyan-bda-dark': #2680EB,
+
+    'white': #ffffff,
+
+    'gray-bda': #f2f2f2,
+    'gray-bda-dark': #707070,
+    'table-bg-color': #707070,
+    'tabs-color':#EAF1FB
+);
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);

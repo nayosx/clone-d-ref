@@ -1,0 +1,52 @@
+.navbar {
+  background-color: var(--white);
+  padding: 15px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin: 20px;
+  @media screen and (min-width: 450px) {
+    justify-content: space-between;
+    border-radius: 50px;
+  }
+}
+
+.arrow {
+  background-color: var(--gray-bda);
+  border: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+
+  cursor: pointer;
+  & i{
+    font-size: 24px;
+  }
+}
+
+.brand-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.user-name {
+  font-size: 1rem;
+  color: var(--black);
+  font-weight: 600;
+}
+
+.gray {
+  padding: 20px;
+  font-weight: 600;
+  color: var(--bg-white);
+}
+
+.black{
+  color: var(--black);
+}

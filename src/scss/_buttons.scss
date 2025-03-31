@@ -1,0 +1,16 @@
+@use 'sass:map';
+@use 'sass:color';
+@use './config' as *;
+
+.p-button {
+    border-radius: 20px !important;
+}
+.p-button-secondary {
+    background: #fff !important;
+    border: 2px solid map.get($colors, 'gray-bda-dark') !important;
+    color: map.get($colors, 'gray-bda-dark') !important;
+    &:hover {
+        background: color.adjust(map.get($colors, 'gray-bda'), $lightness: -10%) !important;
+        color: color.adjust(map.get($colors, 'gray-bda-dark'), $lightness: -10%) !important;
+    }
+}

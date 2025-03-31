@@ -1,0 +1,51 @@
+@if(readyToRender){
+<div class="card">
+  <p-table [value]="value" [loading]="loading" [paginator]="true" [rows]="rows" [totalRecords]="totalRecords || 0"
+    [first]="currentPage * rows" [tableStyle]="{'min-width': '100%'}" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros">
+    <ng-template pTemplate="header">
+      <tr>
+
+        @for(col of columns; track $index){
+        <th>{{ col.header }}</th>
+        }
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-rowData>
+      <tr>
+
+        @for(col of columns; track $index){
+        <td>{{ rowData[col.field] }}</td>
+        }
+      </tr>
+
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td [attr.colspan]="columns.length">
+          <div class="empty-state">
+            <div class="empty-icon">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 2C10.3431 2 9 3.34315 9 5V6.15385C6.38698 7.09784 4.5 9.75287 4.5 12.75V16L3 18H21L19.5 16V12.75C19.5 9.75287 17.613 7.09784 15 6.15385V5C15 3.34315 13.6569 2 12 2Z"
+                  fill="#dcdcdc" />
+                <circle cx="12" cy="20" r="2" fill="#dcdcdc" />
+              </svg>
+            </div>
+            <div class="empty-content">
+              <h3>Por el momento no hay nada que informar</h3>
+              <p>
+                En esta área se mostrarán las notificaciones de los pagos
+                pendientes de aprobar.
+              </p>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+
+  </p-table>
+</div>
+}

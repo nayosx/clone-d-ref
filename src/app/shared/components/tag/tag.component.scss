@@ -1,0 +1,14 @@
+span{
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.warning{
+background-color: var(--red-bda);
+color: var(--red-bda-dark);
+}
+
+.danger{
+background-color: var(--ambar-bda);
+color: var(--ambar-bda-dark);
+}

@@ -1,0 +1,8 @@
+.card-contaniner{
+display: grid;
+grid-template-columns: 1fr;
+gap: 20px;
+@media screen and (min-width: 992px) {
+  grid-template-columns: repeat(2, 400px);
+}
+}

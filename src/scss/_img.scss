@@ -1,0 +1,17 @@
+img.loading-img {
+    opacity: 0.5;
+    filter: blur(2px);
+    transition: all 0.3s ease;
+}
+
+img.loaded-img {
+    opacity: 1;
+    filter: none;
+    transition: all 0.3s ease;
+}
+
+img.error-img {
+    opacity: 1;
+    filter: grayscale(0.5);
+    transition: all 0.3s ease;
+}

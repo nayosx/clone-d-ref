@@ -1,0 +1,17 @@
+@if(accounts.length > 0) {
+<div class="card_container">
+    @for(account of accounts; track account.id) {
+    <div class="card_item p-3 mb-3 shadow-1 border-round-md" (click)="onCardClick(account)" [ngClass]="{'bg-cyan-bda': account.isSelected}">
+        <div>
+            <img class="img_card" [src]="account.img" [alt]="account.name" loading="lazy">
+            <h3 class="m-1">{{ account.name }}</h3>
+            <p class="m-1">{{ account.description }}</p>
+        </div>
+    </div>
+    }
+</div>
+} @else {
+<div class="cards__empty">
+    <p>No cards started</p>
+</div>
+}

@@ -1,0 +1,18 @@
+@use 'sass:map';
+@use './config' as *;
+
+@each $name, $value in $colors {
+    .text-#{$name} {
+        color: $value !important;
+    }
+
+    .bg-#{$name} {
+        background-color: $value !important;
+    }
+}
+
+:root {
+  @each $name, $value in $colors {
+    --#{$name}: #{$value};
+  }
+}

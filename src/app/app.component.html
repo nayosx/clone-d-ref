@@ -1,0 +1,25 @@
+@if (isError) {
+  <main class="container" id="main-container">
+    <div class="flex justify-content-center align-items-center mt-8">
+      
+      <div class="p-card bg-red-bda text-red-bda-dark p-4 border-round-lg">
+        Error en cargar contenido
+      </div>
+      
+    </div>
+  </main>
+  
+} @else {
+  @if(isLoading) {
+    <div class="flex justify-content-center align-items-center mt-8">
+      <div class="spinner-border" role="status">
+        <app-loader-text />
+      </div>
+    </div>
+  } @else {
+    <app-navbar />
+    <main class="container" id="main-container">
+      <router-outlet></router-outlet>
+    </main>
+  }
+}

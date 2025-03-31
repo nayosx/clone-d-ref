@@ -1,0 +1,16 @@
+<div class="filter-table flex align-items-center">
+  <div class="button-filter">
+    <i class="pi pi-sliders-h"></i> <span>Filtros</span>
+  </div>
+
+  @for(option of radioOptions; track $index){
+  <app-radio
+    [color]="option.color"
+    [label]="option.label"
+    [group]="'filter'"
+    [inputId]="'filter' + $index"
+    [value]="option.value"
+    [(modelValue)]="tipo"
+  />
+  }
+</div>

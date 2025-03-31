@@ -1,0 +1,33 @@
+:host ::ng-deep .p-dialog {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:host ::ng-deep .p-dialog-content {
+  overflow: auto;
+}
+
+textarea {
+  resize: none;
+}
+
+.padding-button{
+   padding: 10px 40px;
+}
+
+.omitir{
+  background-color: transparent;
+  color: var(--gray-bda-dark);
+  border-color: var(--gray-bda-dark);
+}
+.omitir:hover{
+  background-color: transparent;
+  color: var(--gray-bda-dark);
+  border-color: var(--gray-bda-dark);
+}
+
+.icon{
+  font-size: 4rem; color: var(--primary-bda);
+}
