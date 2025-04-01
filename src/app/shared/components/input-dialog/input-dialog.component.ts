@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { InputDialogData } from '@shared/interfaces/input-dialog.interface';
 import { ButtonModule } from 'primeng/button';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea';
 
@@ -19,9 +20,14 @@ import { TextareaModule } from 'primeng/textarea';
   styleUrl: './input-dialog.component.scss',
 })
 export class InputDialogComponent {
-  inputValue: string = '';
-
   ref = inject(DynamicDialogRef);
+  private config = inject(DynamicDialogConfig) as InputDialogData;
+
+  icon = this.config.data.icon;
+  iconColor = this.config.data.iconColor;
+  title = this.config.data.title;
+  label = this.config.data.label;
+  inputValue = this.config.data.valorAnterior ?? '';
 
   aceptar() {
     this.ref.close(this.inputValue);
