@@ -1,6 +1,8 @@
+import { IconType } from './confirm-dialog.interface';
+
 export interface InputDialogData {
   data: {
-    icon?: string;
+    icon?: IconType;
     iconColor?: string;
     title?: string;
     label?: string;

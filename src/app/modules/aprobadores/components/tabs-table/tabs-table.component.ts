@@ -5,12 +5,14 @@ import { ConfirmationMessage } from '@shared/interfaces/confirm-dialog.interface
 import { ConfirmationService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { DialogService } from 'primeng/dynamicdialog';
+import { DetalleFacturaComponent } from '../detalle-factura/detalle-factura.component';
 
 @Component({
   selector: 'app-tabs-table',
   imports: [ButtonModule, ConfirmDialogComponent],
   templateUrl: './tabs-table.component.html',
   styleUrl: './tabs-table.component.scss',
+  providers: [DialogService],
 })
 export class TabsTableComponent {
   private _confirmationService = inject(ConfirmationService);
@@ -72,7 +74,7 @@ export class TabsTableComponent {
       acceptLabel: 'Si',
       rejectVisible: true,
       rejectLabel: 'No',
-      type: 'success',
+      type: 'error',
       reverse: true,
       rejectButtonStyleClass: 'p-button-secondary custom-reject',
 
@@ -92,7 +94,7 @@ export class TabsTableComponent {
       modal: true,
       closeOnEscape: false,
       data: {
-        icon: 'pi pi-times-circle',
+        icon: 'error',
         title: 'Advertencia',
         label: 'Escriba el motivo de su rechazo',
       },
@@ -112,7 +114,7 @@ export class TabsTableComponent {
     const config: ConfirmationMessage = {
       title: 'Mensaje enviado',
       message: 'a Oscar Rodriguez',
-      icon: 'pi pi-send',
+      type: 'send',
       acceptLabel: 'Validar y continuar',
       rejectVisible: false,
 

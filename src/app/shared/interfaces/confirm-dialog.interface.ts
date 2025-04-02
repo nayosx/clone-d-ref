@@ -1,7 +1,9 @@
 import { Confirmation } from 'primeng/api';
 
+export type IconType = 'success' | 'error' | 'warning' | 'send';
+
 export interface ConfirmationMessage extends Confirmation {
-  type?: 'success' | 'warning' | 'danger';
+  type?: IconType;
   title?: string;
   reverse?: boolean;
   estilos?: {
