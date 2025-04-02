@@ -17,29 +17,39 @@ import { Subscription } from 'rxjs/internal/Subscription';
 export class AppComponent implements OnInit, OnDestroy {
   private _route = inject(ActivatedRoute);
   private _router = inject(Router);
-  private _authServ = inject(AuthService);
+  public authServ = inject(AuthService);
   private _storeServ = inject(StoreService);
   private _subscriptions!:Subscription;
 
   private _param:string = 'token';
-  private _valueToken:string = '';
+  private _valueToken:string;
   private _tokenExternal:string = '';
 
   isLoading:boolean = false;
   isError:boolean = true;
 
+
   constructor() {
-    //this._valueToken = this._storeServ.getSession<string>('token') ?? '';
+    this._valueToken = '';
   }
 
   ngOnDestroy(): void {
-    /* if(this._subscriptions) {
-      this._subscriptions.unsubscribe();
-    } */
+
   }
   
   ngOnInit(): void {
-    // this.evaluateTokenSession();
+
+    const tokenFromStorage:string = this._storeServ.getSession<string>('token') ?? '';
+
+    if (tokenFromStorage !== '') {
+      this._valueToken = tokenFromStorage;
+      this.isError = false;
+    } else {
+      this._valueToken = '';
+      this.isError = true;
+    }
+
+    console.log('Token from storage:', tokenFromStorage);
   }
 
   evaluateTokenSession():void {
@@ -48,7 +58,7 @@ export class AppComponent implements OnInit, OnDestroy {
       if (this._tokenExternal !== '' && this._valueToken === '') {
         this.login(this._tokenExternal);
       } else if(this._tokenExternal === '' && this._valueToken !== '') {
-        console.log('moverse a otro lado');
+        this._nextMoveTo();
       }
     });
   }
@@ -57,7 +67,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.isError = false;
 
-    this._authServ.login({ tempToken: arg }).subscribe({
+    this.authServ.login({ tempToken: arg }).subscribe({
       next: (data) => {
         const valTokenAuth = data.token || data.fakeJwt || '';
         if (data?.token || data?.fakeJwt) {

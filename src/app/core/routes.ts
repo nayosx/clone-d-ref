@@ -6,4 +6,5 @@ export const ROUTES_PATH = {
   PAYER_AUTH: 'payer/authenticate',
   PAYER_DETAILS: 'payer/details',
   APROBADORES: 'aprobador',
+  ACCESS_DENIED: 'access-denied',
 };

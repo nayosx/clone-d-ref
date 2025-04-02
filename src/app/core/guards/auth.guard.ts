@@ -1,30 +1,58 @@
+// src/app/guards/auth.guard.ts
 import { inject } from '@angular/core';
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanActivateFn } from '@angular/router';
+import { AuthService } from '@shared/services/auth/auth.service';
 import { StoreService } from '@shared/services/store/store.service';
+import { Observable, of } from 'rxjs';
+import { map, catchError, finalize } from 'rxjs/operators';
 
 export const authGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
-): boolean | UrlTree => {
+): boolean | UrlTree | Observable<boolean | UrlTree> => {
   const storeService = inject(StoreService);
   const router = inject(Router);
+  const authService = inject(AuthService);
 
-  // Obtener el token de los query params y de la sesión.
   const tokenFromQuery: string = route.queryParams['token'] ?? '';
   const tokenFromSession: string = storeService.getSession<string>('token') ?? '';
 
-  // Si se recibe el token por query y aún no está en la sesión, lo almacenamos.
   if (tokenFromQuery && !tokenFromSession) {
     storeService.setSession('token', tokenFromQuery);
   }
 
-  // Si se encontró token (ya sea en query o en sesión), se permite el acceso.
+  if (tokenFromQuery && !tokenFromSession) {
+    authService.setIsLoading(true);
+
+    authService.setShowAllUI(true);
+    return true;
+
+    return authService.login({ tempToken: tokenFromQuery }).pipe(
+      map(response => {
+        authService.setShowAllUI(true);
+        return true;
+      }),
+      catchError(error => {
+        authService.setShowAllUI(false);
+        return of(router.createUrlTree(['/access-denied'], {
+          queryParams: { returnUrl: state.url }
+        }));
+      }),
+      finalize(() => {
+        authService.setIsLoading(false);
+      })
+    );
+  }
+
   if (tokenFromQuery || tokenFromSession) {
+    authService.setShowAllUI(true);
+    authService.setIsLoading(false);
     return true;
   }
 
-  // Si no hay token, se redirige a una página de "access denied" pasando la URL solicitada.
+  authService.setShowAllUI(false);
+  authService.setIsLoading(false);
   return router.createUrlTree(['/access-denied'], {
-    queryParams: { returnUrl: state.url },
+    queryParams: { returnUrl: state.url }
   });
 };

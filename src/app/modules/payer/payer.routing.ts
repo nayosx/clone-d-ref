@@ -16,7 +16,6 @@ export const PAYER_ROUTES:Routes = [
     {
         path: ROUTES_PATH.PAYER_COLLECTORS,
         loadComponent: () => import('./pages/collectors/collectors.component').then(m => m.CollectorsComponent),
-        canActivate: [authGuard]
     },
     {
         path: ROUTES_PATH.PAYER_LINKUP,
