@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-error-icon',
+  selector: 'app-send-icon',
   imports: [],
   template: `
     <svg
