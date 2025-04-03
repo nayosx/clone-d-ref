@@ -1,0 +1,52 @@
+<div>
+    <h2>Detalle de la factura {{ factura.numeroFactura }}</h2>
+  
+    <div>
+      <div>
+        <div>
+          <span>Número de transacción:</span>
+          <span>{{ factura.numeroTransaccion }}</span>
+        </div>
+        <div>
+          <span>Colector:</span>
+          <span>{{ factura.colector }}</span>
+        </div>
+        <div>
+          <span>Cliente:</span>
+          <span>{{ factura.cliente }}</span>
+        </div>
+        <div>
+          <span>NIT/DUI:</span>
+          <span>{{ factura.nitDui }}</span>
+        </div>
+        <div>
+          <span>Producto:</span>
+          <span>{{ factura.producto }}</span>
+        </div>
+        <div>
+          <span>Concepto:</span>
+          <span>{{ factura.concepto }}</span>
+        </div>
+        <div>
+          <span>Fecha de creación:</span>
+          <span>{{ factura.fechaCreacion }}</span>
+        </div>
+        <div>
+          <span>Usuario:</span>
+          <span>{{ factura.usuario }}</span>
+        </div>
+      </div>
+  
+      <div>
+        <span>Monto: $ {{ factura.monto }}</span>
+      </div>
+    </div>
+  
+    <button
+      pButton
+      type="button"
+      label="Cerrar"
+      (click)="cancelar()"
+    ></button>
+  </div>
+  

@@ -10,6 +10,9 @@ import { EmptyMessageComponent } from '@aprobadores/components/empty-message/emp
 import { AppTableFiltersComponent } from '@aprobadores/components/table-filters/table-filters.component';
 import { TabsTableComponent } from '@aprobadores/components/tabs-table/tabs-table.component';
 import { PagosStateService } from '@aprobadores/services/pagos-state.service';
+import { ButtonModule } from 'primeng/button';
+import { DialogService } from 'primeng/dynamicdialog';
+import { DetalleFacturaComponent } from '../detalle-factura/detalle-factura.component';
 
 @Component({
   selector: 'app-aprobadores-table',
@@ -24,11 +27,15 @@ import { PagosStateService } from '@aprobadores/services/pagos-state.service';
     AppTableFiltersComponent,
     EmptyMessageComponent,
     TagComponent,
+    ButtonModule,
   ],
   templateUrl: './aprobadores-table.component.html',
   styleUrl: './aprobadores-table.component.scss',
+  providers: [DialogService],
 })
 export class AprobadoresTableComponent {
+  private _dialogService = inject(DialogService);
+
   checkboxType = CheckboxOptions;
   @Input() value: any[] = [];
   @Input() loading: boolean = false;
@@ -54,6 +61,10 @@ export class AprobadoresTableComponent {
     return (
       field === CheckboxOptions.APROBRAR || field === CheckboxOptions.RECHAZAR
     );
+  }
+
+  isDetalle(field: string) {
+    return field === 'detalles';
   }
 
   isStateColumn(field: string) {
@@ -87,5 +98,27 @@ export class AprobadoresTableComponent {
     }
 
     this._pagosState.guardarCambio(pago);
+  }
+
+  abrirDetalle() {
+    this._dialogService.open(DetalleFacturaComponent, {
+      style: { width: '80%', maxWidth: '600px' },
+      modal: true,
+      showHeader: false,
+      data: {
+        factura: {
+          numeroFactura: 'SS-1234',
+          numeroTransaccion: '123-567890-123-4',
+          colector: 'Tigo Business',
+          cliente: 'Empresa S.A. de C.V.',
+          nitDui: '123-567890-123-4',
+          producto: 'CTA - **********3456',
+          concepto: 'Pago de facturas Q1',
+          fechaCreacion: '13/03/2025 08:47 AM',
+          usuario: 'Oscar Rodríguez',
+          monto: 650,
+        },
+      },
+    });
   }
 }
