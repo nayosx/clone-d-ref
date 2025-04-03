@@ -26,13 +26,13 @@ export class AppTableFiltersComponent {
     },
     {
       color: 'yellow',
-      label: 'Pagadas',
+      label: 'Pendientes',
       group: 'filter',
       value: 'app-radio',
     },
     {
       color: 'pink',
-      label: 'Pagadas',
+      label: 'Vencidas',
       group: 'filter',
       value: 'b',
     },

@@ -28,11 +28,10 @@ export class TabsTableComponent {
       title: '¿Está seguro que desea pagar las facturas?',
       message:
         'Estás apunto de realizar un pago total de  <b>$650.75</b> a Tigo Business. Esta acción no se puede deshacer ',
-      icon: 'pi pi-exclamation-triangle',
       acceptLabel: 'Pagar',
       rejectVisible: true,
       rejectLabel: 'Cancelar',
-      type: 'success',
+      type: 'warning',
       reverse: true,
       rejectButtonStyleClass: 'p-button-secondary custom-reject',
 
