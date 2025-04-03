@@ -5,7 +5,6 @@ import { ConfirmationMessage } from '@shared/interfaces/confirm-dialog.interface
 import { ConfirmationService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { DialogService } from 'primeng/dynamicdialog';
-import { DetalleFacturaComponent } from '../detalle-factura/detalle-factura.component';
 
 @Component({
   selector: 'app-tabs-table',
