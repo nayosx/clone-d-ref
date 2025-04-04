@@ -1,10 +1,10 @@
 export const ROUTES_PATH = {
-  PAYER_HOME: 'payer',
-  PAYER_BUSINESS: 'payer/business',
-  PAYER_COLLECTORS: 'payer/collectors',
-  PAYER_LINKUP: 'payer/linkup',
-  PAYER_AUTH: 'payer/authenticate',
-  PAYER_DETAILS: 'payer/details',
+
+  OPERATOR_HOME: 'operador',
+  OPERATOR_BUSINESS: 'business',
+  OPERATOR_COLLECTORS: 'collectors',
+  OPERATOR_LINKUP: 'linkup',
+
   APROBADORES: 'aprobador',
   ACCESS_DENIED: 'access-denied',
 };
