@@ -1,52 +1,53 @@
-<div>
-    <h2>Detalle de la factura {{ factura.numeroFactura }}</h2>
-  
-    <div>
-      <div>
-        <div>
-          <span>Número de transacción:</span>
-          <span>{{ factura.numeroTransaccion }}</span>
-        </div>
-        <div>
-          <span>Colector:</span>
-          <span>{{ factura.colector }}</span>
-        </div>
-        <div>
-          <span>Cliente:</span>
-          <span>{{ factura.cliente }}</span>
-        </div>
-        <div>
-          <span>NIT/DUI:</span>
-          <span>{{ factura.nitDui }}</span>
-        </div>
-        <div>
-          <span>Producto:</span>
-          <span>{{ factura.producto }}</span>
-        </div>
-        <div>
-          <span>Concepto:</span>
-          <span>{{ factura.concepto }}</span>
-        </div>
-        <div>
-          <span>Fecha de creación:</span>
-          <span>{{ factura.fechaCreacion }}</span>
-        </div>
-        <div>
-          <span>Usuario:</span>
-          <span>{{ factura.usuario }}</span>
-        </div>
+<div class="p-2 surface-card text-black">
+  <h2 class="text-2xl font-bold mb-4">Detalle de la factura {{ factura.numeroFactura }}</h2>
+
+  <div class="border-1 border-round surface-border p-6">
+    <div class="flex flex-column gap-2 mb-2">
+      <div class="flex justify-content-between mb-2">
+        <span class="font-medium ">Número de transacción:</span>
+        <span class="font-bold">{{ factura.numeroTransaccion }}</span>
       </div>
-  
-      <div>
-        <span>Monto: $ {{ factura.monto }}</span>
+      <div class="flex justify-content-between mb-2">
+        <span class="font-medium ">Colector:</span>
+        <span class="font-bold">{{ factura.colector }}</span>
+      </div>
+      <div class="flex justify-content-between mb-2">
+        <span class="font-medium ">Cliente:</span>
+        <span class="font-bold">{{ factura.cliente }}</span>
+      </div>
+      <div class="flex justify-content-between mb-2">
+        <span class="font-medium ">NIT/DUI:</span>
+        <span class="font-bold">{{ factura.nitDui }}</span>
+      </div>
+      <div class="flex justify-content-between mb-2">
+        <span class="font-medium ">Producto:</span>
+        <span class="font-bold">{{ factura.producto }}</span>
+      </div>
+      <div class="flex justify-content-between mb-2">
+        <span class="font-medium ">Concepto:</span>
+        <span class="font-bold">{{ factura.concepto }}</span>
+      </div>
+      <div class="flex justify-content-between mb-2">
+        <span class="font-medium ">Fecha de creación:</span>
+        <span class="font-bold">{{ factura.fechaCreacion }}</span>
+      </div>
+      <div class="flex justify-content-between mb-2">
+        <span class="font-medium ">Usuario:</span>
+        <span class="font-bold">{{ factura.usuario }}</span>
       </div>
     </div>
-  
-    <button
-      pButton
-      type="button"
-      label="Cerrar"
-      (click)="cancelar()"
-    ></button>
+
+    <div class="text-right mt-4">
+      <span class="monto">
+        Monto: $ {{ factura.monto }}
+      </span>
+    </div>
   </div>
-  
+  <button
+  pButton
+  type="button"
+  label="Cerrar"
+  class="px-5 mt-3 p-button-secondary"
+  (click)="cancelar()"
+></button>
+</div>
