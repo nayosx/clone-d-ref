@@ -1,0 +1,19 @@
+textarea {
+  width: 100%;
+    resize: none;
+  }
+
+.dialog-container{
+    
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+
+.icon{
+  font-size: 5rem;
+  color: var(--red-bda-dark);
+}

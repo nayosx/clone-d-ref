@@ -1,0 +1,29 @@
+<div class="p-fluid dialog-container">
+     <app-icon [typeIcon]="icon"/>
+    <h2 class="mt-3 font-bold">{{title}}</h2>
+
+  <div class="text-left flex flex-column">
+    <label class="mt-2 text-sm text-left text-gray-700 font-bold" for="textArea"
+      >{{label}}</label
+    >
+    <textarea
+      id="textArea"
+      rows="3"
+      cols="50"
+      [(ngModel)]="inputValue"
+      pTextarea
+      [autoResize]="true"
+    ></textarea>
+  </div>
+
+  <div class="w-full flex justify-content-start gap-2 ml-6">
+    <button pButton class="px-5" type="button" label="Enviar" (click)="aceptar()"></button>
+    <button
+      pButton
+      type="button"
+      label="Omitir"
+      class="px-5 p-button-secondary"
+      (click)="cancelar()"
+    ></button>
+  </div>
+</div>
