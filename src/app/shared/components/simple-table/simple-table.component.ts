@@ -9,7 +9,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
   templateUrl: './simple-table.component.html',
   styleUrl: './simple-table.component.scss',
 })
-export class SimpleTableComponent implements OnInit {
+export class SimpleTableComponent {
   @Input() value: any[] = [];
   @Input() loading: boolean = false;
   @Input() columns: { field: string; header: string }[] = [];
@@ -18,12 +18,4 @@ export class SimpleTableComponent implements OnInit {
   @Input() currentPage = 0;
 
   @Output() selectionChange = new EventEmitter<any[]>();
-
-  readyToRender = false;
-
-  ngOnInit() {
-    setTimeout(() => {
-      this.readyToRender = true;
-    }, 0);
-  }
 }

@@ -23,8 +23,6 @@ export class IconComponent {
   };
 
   getIconComponent(type: IconType) {
-    console.log(type);
-
     return this.icons[type] ?? SuccessIconComponent;
   }
 }
