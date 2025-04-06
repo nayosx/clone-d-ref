@@ -27,6 +27,22 @@ export class AppComponent implements OnInit, OnDestroy {
 
   }
   
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const body = {
+      "usuario": "demo",
+      "clave": "demo"
+    };
+    const body2 = {
+      "idTransaccion": "bdf5fd9c-bf6a-4d60-8086-a",
+      "idSesion": 124999519233026,
+      "fechaHora": "2023-10-05 12:00:00"
+    };
+    this.authServ.testGET(body2).subscribe((res) => {
+      console.log(res);
+    });
+    this.authServ.testPOST(body).subscribe((res) => {
+      console.log(res);
+    });
+  }
 
 }

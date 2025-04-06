@@ -9,6 +9,9 @@ export class StoreService {
   cypher = inject(CypherService);
 
   setLocal(key: string, value: any, isEncrypt: boolean = true): void {
+    if (value === null || value === undefined) {
+      throw new Error(`Cannot store null or undefined value for key: ${key}`);
+    }
     const data = isEncrypt ? this.cypher.encrypt(JSON.stringify(value)) : JSON.stringify(value);
     localStorage.setItem(key, data);
   }
@@ -17,6 +20,7 @@ export class StoreService {
     const data = localStorage.getItem(key);
     if (!data) return null;
     const value = isEncrypt ? this.cypher.decrypt(data) : data;
+    if (value === 'null' || value === 'undefined') return null;
     return JSON.parse(value) as T;
   }
 
@@ -29,6 +33,9 @@ export class StoreService {
   }
 
   setSession(key: string, value: any, isEncrypt: boolean = true): void {
+    if (value === null || value === undefined) {
+      throw new Error(`Cannot store null or undefined value for key: ${key}`);
+    }
     const data = isEncrypt ? this.cypher.encrypt(JSON.stringify(value)) : JSON.stringify(value);
     sessionStorage.setItem(key, data);
   }
@@ -37,6 +44,7 @@ export class StoreService {
     const data = sessionStorage.getItem(key);
     if (!data) return null;
     const value = isEncrypt ? this.cypher.decrypt(data) : data;
+    if (value === 'null' || value === 'undefined') return null;
     return JSON.parse(value) as T;
   }
 

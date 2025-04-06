@@ -3,9 +3,11 @@ import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import { MyPreset } from './primeng.custom';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 import { routes } from './app.routes';
+import { generalRequest } from '@core/interceptors/general-request.interceptor';
+import { tokenInterceptor } from '@core/interceptors/token.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,6 +24,13 @@ export const appConfig: ApplicationConfig = {
           }
         }
       }),
-    provideHttpClient()
+    provideHttpClient(
+      withInterceptors(
+        [
+          generalRequest,
+          tokenInterceptor
+        ]
+      )
+    )
   ]
 };
