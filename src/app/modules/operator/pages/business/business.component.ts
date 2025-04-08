@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { DummyCards } from '../../../../shared/dummy/cards.dummy';
-import { CardsComponent } from "../../../../shared/components/cards/cards.component";
+import { DummyCards } from '@shared/dummy/cards.dummy';
+import { CardsComponent } from "@shared/components/cards/cards.component";
 
 @Component({
   selector: 'app-business',

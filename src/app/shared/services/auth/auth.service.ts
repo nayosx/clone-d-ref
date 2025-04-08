@@ -28,4 +28,12 @@ export class AuthService {
   setIsLoading(value: boolean): void {
     this.isLoading.set(value);
   }
+
+  testGET(variableBody: any): Observable<any> {
+    return this.http.request<any>('GET', `${this.path}/testGET`, { body: variableBody });
+  }
+
+  testPOST(variableBody: any): Observable<any> {
+    return this.http.post<any>(`${this.path}/testPOST`, variableBody);
+  }
 }
