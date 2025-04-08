@@ -6,22 +6,26 @@ import { MyPreset } from './primeng.custom';
 import { provideHttpClient } from '@angular/common/http';
 
 import { routes } from './app.routes';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ConfirmationService } from 'primeng/api';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }), 
+    ConfirmationService,
+    DialogService,
+    provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimationsAsync(),
     providePrimeNG(
       {
         theme:
         {
-          preset: MyPreset,
-          options: {
+        preset: MyPreset,
+        options: {
             darkModeSelector: false || 'none'
           }
         }
-      }),
+    }),
     provideHttpClient()
   ]
 };

@@ -47,7 +47,9 @@
       "<rootDir>/setup-jest.ts"
     ],
     "moduleNameMapper": {
-      "^@shared/(.*)$": "<rootDir>/src/app/shared/$1"
+      "^@shared/(.*)$": "<rootDir>/src/app/shared/$1",
+      "^@aprobadores/(.*)$": "<rootDir>/src/app/modules/aprobadores/$1",
+      "^@modules/(.*)$": "<rootDir>/src/app/modules/$1"
     }
   }
 }

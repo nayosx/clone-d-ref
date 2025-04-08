@@ -16,25 +16,25 @@ export class AppTableFiltersComponent {
       color: 'gray',
       label: 'Todos los pagos',
       group: 'filter',
-      value: 'pizza',
+      value: 'all',
     },
     {
       color: 'green',
       label: 'Pagadas',
       group: 'filter',
-      value: 'peper',
+      value: 'pagadas',
     },
     {
       color: 'yellow',
       label: 'Pendientes',
       group: 'filter',
-      value: 'app-radio',
+      value: 'pendientes',
     },
     {
       color: 'pink',
       label: 'Vencidas',
       group: 'filter',
-      value: 'b',
+      value: 'vencidas',
     },
   ];
 }

@@ -31,10 +31,10 @@ import { DetalleFacturaComponent } from '../detalle-factura/detalle-factura.comp
   ],
   templateUrl: './aprobadores-table.component.html',
   styleUrl: './aprobadores-table.component.scss',
-  providers: [DialogService],
 })
 export class AprobadoresTableComponent {
   private _dialogService = inject(DialogService);
+  private _pagosState = inject(PagosStateService);
 
   checkboxType = CheckboxOptions;
   @Input() value: any[] = [];
@@ -48,14 +48,6 @@ export class AprobadoresTableComponent {
 
   readyToRender = false;
   CheckboxOptions = CheckboxOptions;
-
-  private _pagosState = inject(PagosStateService);
-
-  ngOnInit() {
-    setTimeout(() => {
-      this.readyToRender = true;
-    }, 0);
-  }
 
   isCheckboxColumn(field: string): field is CheckboxOption {
     return (

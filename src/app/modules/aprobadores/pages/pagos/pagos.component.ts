@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AprobadoresTableComponent } from '@modules/aprobadores/components/aprobadores-table/aprobadores-table.component';
 import { InfoCardComponent } from '@shared/components/info-card/info-card.component';
-import { ConfirmationService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 
@@ -15,7 +14,6 @@ import { CardModule } from 'primeng/card';
   ],
   templateUrl: './pagos.component.html',
   styleUrl: './pagos.component.scss',
-  providers: [ConfirmationService],
 })
 export default class PagosComponent {
   title = 'Pagos';
