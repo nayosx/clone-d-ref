@@ -11,7 +11,6 @@ import { DialogService } from 'primeng/dynamicdialog';
   imports: [ButtonModule, ConfirmDialogComponent],
   templateUrl: './tabs-table.component.html',
   styleUrl: './tabs-table.component.scss',
-  providers: [DialogService],
 })
 export class TabsTableComponent {
   private _confirmationService = inject(ConfirmationService);
