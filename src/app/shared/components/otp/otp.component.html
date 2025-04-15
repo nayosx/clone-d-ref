@@ -1,15 +1,16 @@
 <div>
-    <input type="text" pInputText [(ngModel)]="otp" (input)="onInputChange($event)" maxlength="6"
-        placeholder="Ingrese OTP" />
-        <div *ngIf="countdown > 0">
-            Cuenta atrás: {{ countdown }} segundos
-          </div>
-          <div *ngIf="countdown === 0">
-            <button 
-              pButton 
-              type="button" 
-              label="Volver a solicitar OTP" 
-              (click)="onResendOtp()">
-            </button>
-          </div>
+  <div class="mb-2">
+    <label for="duinit">
+      <strong>{{ label }}</strong>
+    </label>
+  </div>
+  <input type="text" pInputText [(ngModel)]="value" (input)="onInputChange($event)" maxlength="6" minlength="6"
+    [fluid]="true" placeholder="Ingrese OTP" />
+  <div class="mt-2 text-sm mt-4">
+    Podrá solicitar un nuevo código en: <strong>{{ formattedCountdown }}</strong>
+  </div>
+  <div class="mt-2 text-sm mt-4">
+    <p>¿No has recibido el código?</p>
+    <p-button label="Solicitar nuevo código" severity="primary" type="button" (click)="onResendOtp()" [disabled]="countdown > 0"></p-button>
+  </div>
 </div>

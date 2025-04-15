@@ -1,17 +1,7 @@
 <div class="grid justify-content-start  mt-4">
   <div class="col-12 sm:col-12 lg:col-6 bg-white p-4 shadow border-round-2xl">
-    <p>Este bloque ocupa la mitad de la pantalla, está alineado a la izquierda y tiene un fondo blanco.</p>
-  </div>
-</div>
 
-<div class="grid justify-content-start  mt-4">
-  <div class="col-12 sm:col-12 lg:col-6 bg-white p-4 shadow border-round-2xl">
-
-    
-
-    
     <h3>Vincular mi usuario a</h3>
-
 
     <div class="flex align-items-start justify-content-start bg-cyan-bda p-2 border-round-lg mb-4">
       <p>
@@ -19,7 +9,6 @@
       </p>
       <p>Para administrar sus pagos en este colector debe de vincular su usuario</p>
     </div>
-
 
     <p>Su número de usuario puede ser:</p>
     <p>
@@ -45,29 +34,22 @@
 <div class="grid justify-content-start  mt-4">
   <div class="col-12 sm:col-12 lg:col-6 bg-white p-4 shadow border-round-2xl">
 
-    
-
-    
-    <h3>Vincular mi usuario a</h3>
+    <h3>Código de autenticación</h3>
 
 
     <div class="flex align-items-start justify-content-start bg-cyan-bda p-2 border-round-lg mb-4">
       <p>
         <i class="pi pi-info-circle" style="font-size: 1.5rem; margin-right: 0.5rem;"></i>
       </p>
-      <p>Para administrar sus pagos en este colector debe de vincular su usuario</p>
+      <p>
+        El código para la aprobación de transacciones lo debe generar desde su APP Davivienda SV / Token Virtual.
+      </p>
     </div>
 
-
-    <p>Su número de usuario puede ser:</p>
-    <p>
-      - DUI (Sin guiones) <br />
-      - NIT (Sin guiones) <br />
-    </p>
     <form [formGroup]="formOtp" (ngSubmit)="onSubmitOtp()">
-      <app-otp />
+      <app-otp formControlName="otp" [label]="'Ingrese código de autenticación'"/>
       <div class="mt-6">
-        <p-button label="Validar y continuar" type="submit" [disabled]="!formOtp.valid"></p-button>
+        <p-button label="Verificar y continuar" type="submit" [disabled]="!formOtp.valid"></p-button>
         <p-button label="Cancelar" severity="secondary" class="ml-3" type="button" (click)="onCancel()"></p-button>
       </div>
     </form>

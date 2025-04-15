@@ -4,6 +4,7 @@ import { FormsModule, ControlValueAccessor, NG_VALUE_ACCESSOR, Validator, Abstra
 import { InputMaskModule } from 'primeng/inputmask';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputBdComponent } from '../input-bd/input-bd.component';
 
 
 @Component({
@@ -30,43 +31,24 @@ import { InputTextModule } from 'primeng/inputtext';
   ],
   templateUrl: './input-dui-nit.component.html',
 })
-export class InputDuiNitComponent implements ControlValueAccessor, Validator {
-  duiornit: string = '';
-  @Input() classNames: string = '';
+export class InputDuiNitComponent extends InputBdComponent {
+
   @Input() isOnlyDUI: boolean = false;
   @Input() isOnlyNIT: boolean = false;
-  @Input() label: string = 'Change me!';
-  @Input() placeholder: string = 'Change me!';
 
-  @Output() duiNitChange = new EventEmitter<string>();
-
-  onChange = (_: any) => {};
-  onTouched = () => {};
-
-  writeValue(value: any): void {
-    this.duiornit = value || '';
-  }
-  registerOnChange(fn: any): void {
-    this.onChange = fn;
-  }
-  registerOnTouched(fn: any): void {
-    this.onTouched = fn;
-  }
-  setDisabledState?(isDisabled: boolean): void {}
-
-  onInputChange(event: Event): void {
+  override onInputChange(event: Event): void {
     const input = event.target as HTMLInputElement;
-    this.duiornit = input.value.replace(/\D/g, '');
-    this.onChange(this.duiornit);
-    this.duiNitChange.emit(this.duiornit);
+    this.value = input.value.replace(/\D/g, '');
+    this.onChange(this.value);
+    this.valueChange.emit(this.value);
   }
 
-  validate(control: AbstractControl): ValidationErrors | null {
-    const value = this.duiornit || '';
-    if (value.trim() === '') {
+  override validate(control: AbstractControl): ValidationErrors | null {
+    const output = this.value || '';
+    if (output.trim() === '') {
       return { required: true };
     }
-    const len = value.length;
+    const len = output.length;
     if (len !== 9 && len !== 14) {
       return { invalidFormat: true };
     }

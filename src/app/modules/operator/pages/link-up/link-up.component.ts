@@ -28,6 +28,7 @@ export class LinkUpComponent implements OnInit {
     this.form = this.fb.group({
       identificacion: ['']
     });
+
     this.formOtp = this.fb.group({
       otp: ['']
     });
