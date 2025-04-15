@@ -21,6 +21,7 @@
     "@types/crypto-js": "^4.2.2",
     "crypto-js": "^4.2.0",
     "dayjs": "^1.11.13",
+    "ngx-mask": "^19.0.6",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
     "primeng": "^19.0.10",

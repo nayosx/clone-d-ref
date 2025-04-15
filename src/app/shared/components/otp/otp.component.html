@@ -1,1 +1,15 @@
-<p>otp works!</p>
+<div>
+    <input type="text" pInputText [(ngModel)]="otp" (input)="onInputChange($event)" maxlength="6"
+        placeholder="Ingrese OTP" />
+        <div *ngIf="countdown > 0">
+            Cuenta atrás: {{ countdown }} segundos
+          </div>
+          <div *ngIf="countdown === 0">
+            <button 
+              pButton 
+              type="button" 
+              label="Volver a solicitar OTP" 
+              (click)="onResendOtp()">
+            </button>
+          </div>
+</div>

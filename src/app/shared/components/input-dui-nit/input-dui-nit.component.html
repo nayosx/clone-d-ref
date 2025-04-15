@@ -1,0 +1,48 @@
+<div class="mb-2">
+    <label for="duinit" >
+        <strong>
+        {{label}}
+        </strong>
+    </label>
+</div>
+@if(isOnlyDUI) {
+    <input 
+        type="text" 
+        pInputText
+        [class]="classNames"
+        [fluid]="true"
+        id="duinit" 
+        aria-describedby="duinit-help"
+        [placeholder]="placeholder"
+        mask="00000000-0" 
+        [(ngModel)]="duiornit" 
+        (input)="onInputChange($event)" 
+    />
+} @else if (isOnlyNIT) {
+    <input 
+        type="text" 
+        pInputText
+        [class]="classNames"
+        [fluid]="true"
+        id="duinit" 
+        aria-describedby="duinit-help"
+        [placeholder]="placeholder"
+        mask="0000-000000-000-0" 
+        [(ngModel)]="duiornit" 
+        (input)="onInputChange($event)" 
+    />
+} @else {
+    <input 
+        type="text" 
+        pInputText
+        [class]="classNames"
+        [fluid]="true"
+        id="duinit" 
+        aria-describedby="duinit-help"
+        [placeholder]="placeholder"
+        mask="00000000-0||0000-000000-000-0" 
+        [(ngModel)]="duiornit" 
+        (input)="onInputChange($event)" 
+    />
+}
+

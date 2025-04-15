@@ -11,6 +11,8 @@ import { tokenInterceptor } from '@core/interceptors/token.interceptor';
 import { ConfirmationService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
 
+import { provideEnvironmentNgxMask } from 'ngx-mask'
+
 export const appConfig: ApplicationConfig = {
   providers: [
     ConfirmationService,
@@ -35,6 +37,7 @@ export const appConfig: ApplicationConfig = {
           tokenInterceptor
         ]
       )
-    )
+    ),
+    provideEnvironmentNgxMask(),
   ]
 };

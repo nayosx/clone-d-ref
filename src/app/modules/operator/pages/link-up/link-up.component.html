@@ -3,3 +3,74 @@
     <p>Este bloque ocupa la mitad de la pantalla, está alineado a la izquierda y tiene un fondo blanco.</p>
   </div>
 </div>
+
+<div class="grid justify-content-start  mt-4">
+  <div class="col-12 sm:col-12 lg:col-6 bg-white p-4 shadow border-round-2xl">
+
+    
+
+    
+    <h3>Vincular mi usuario a</h3>
+
+
+    <div class="flex align-items-start justify-content-start bg-cyan-bda p-2 border-round-lg mb-4">
+      <p>
+        <i class="pi pi-info-circle" style="font-size: 1.5rem; margin-right: 0.5rem;"></i>
+      </p>
+      <p>Para administrar sus pagos en este colector debe de vincular su usuario</p>
+    </div>
+
+
+    <p>Su número de usuario puede ser:</p>
+    <p>
+      - DUI (Sin guiones) <br />
+      - NIT (Sin guiones) <br />
+    </p>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <app-input-dui-nit 
+        formControlName="identificacion"
+        [label]="'Ingresar su número de usuario'" 
+        [placeholder]="'000000000'"
+      />
+      <div class="mt-6">
+        <p-button label="Validar y continuar" type="submit" [disabled]="!form.valid"></p-button>
+        <p-button label="Cancelar" severity="secondary" class="ml-3" type="button" (click)="onCancel()"></p-button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<div class="grid justify-content-start  mt-4">
+  <div class="col-12 sm:col-12 lg:col-6 bg-white p-4 shadow border-round-2xl">
+
+    
+
+    
+    <h3>Vincular mi usuario a</h3>
+
+
+    <div class="flex align-items-start justify-content-start bg-cyan-bda p-2 border-round-lg mb-4">
+      <p>
+        <i class="pi pi-info-circle" style="font-size: 1.5rem; margin-right: 0.5rem;"></i>
+      </p>
+      <p>Para administrar sus pagos en este colector debe de vincular su usuario</p>
+    </div>
+
+
+    <p>Su número de usuario puede ser:</p>
+    <p>
+      - DUI (Sin guiones) <br />
+      - NIT (Sin guiones) <br />
+    </p>
+    <form [formGroup]="formOtp" (ngSubmit)="onSubmitOtp()">
+      <app-otp />
+      <div class="mt-6">
+        <p-button label="Validar y continuar" type="submit" [disabled]="!formOtp.valid"></p-button>
+        <p-button label="Cancelar" severity="secondary" class="ml-3" type="button" (click)="onCancel()"></p-button>
+      </div>
+    </form>
+  </div>
+</div>
+

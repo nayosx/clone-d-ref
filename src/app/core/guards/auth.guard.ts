@@ -1,6 +1,7 @@
 import { inject } from '@angular/core';
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanActivateFn } from '@angular/router';
 import { AuthService } from '@shared/services/auth/auth.service';
+import { DeviceService } from '@shared/services/devices/device.service';
 import { StoreService } from '@shared/services/store/store.service';
 import { Observable, of } from 'rxjs';
 import { map, catchError, finalize } from 'rxjs/operators';
@@ -12,16 +13,17 @@ export const authGuard: CanActivateFn = (
   const storeService = inject(StoreService);
   const router = inject(Router);
   const authService = inject(AuthService);
+  const deviceServ = inject(DeviceService);
 
   const tokenFromQuery: string = route.queryParams['token'] ?? '';
   const tokenFromSession: string = storeService.getSession<string>('token') ?? '';
 
   if (tokenFromQuery && !tokenFromSession) {
-    authService.setIsLoading(false);
-    authService.setShowAllUI(true);
-    return true;
-    
-    
+    /*     authService.setIsLoading(false);
+        authService.setShowAllUI(true);
+        return true; */
+
+
     authService.setIsLoading(true);
     return authService.login({ tempToken: tokenFromQuery }).pipe(
       map(response => {

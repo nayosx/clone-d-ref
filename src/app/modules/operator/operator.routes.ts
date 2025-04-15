@@ -5,7 +5,7 @@ import { authGuard } from '@core/guards/auth.guard';
 export const OPERATOR_ROUTES:Routes = [
     {
         path: ROUTES_PATH.OPERATOR_HOME,
-        canActivateChild: [authGuard],
+        //canActivateChild: [authGuard],
         children: [
             {
                 path: '',
