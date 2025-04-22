@@ -5,23 +5,28 @@ import { authGuard } from '@core/guards/auth.guard';
 export const OPERATOR_ROUTES:Routes = [
     {
         path: ROUTES_PATH.OPERATOR_HOME,
-        //canActivateChild: [authGuard],
+        canActivateChild: [authGuard],
         children: [
             {
                 path: '',
                 loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent),
             },
+
             {
-                path: ROUTES_PATH.OPERATOR_BUSINESS,
-                loadComponent: () => import('./pages/business/business.component').then(m => m.BusinessComponent),
+                path: ROUTES_PATH.OPERATOR_STEP1,
+                loadComponent: () => import('./pages/step1-business/step1-business.component').then(m => m.Step1BusinessComponent),
             },
             {
-                path: ROUTES_PATH.OPERATOR_COLLECTORS,
-                loadComponent: () => import('./pages/collector/collector.component').then(m => m.CollectorComponent),
+                path: ROUTES_PATH.OPERATOR_STEP2,
+                loadComponent: () => import('./pages/step2-collector/step2-collector.component').then(m => m.Step2CollectorComponent),
             },
             {
-                path: ROUTES_PATH.OPERATOR_LINKUP,
-                loadComponent: () => import('./pages/link-up/link-up.component').then(m => m.LinkUpComponent),
+                path: ROUTES_PATH.OPERATOR_STEP3,
+                loadComponent: () => import('./pages/step3-link-user/step3-link-user.component').then(m => m.Step3LinkUserComponent),
+            },
+            {
+                path: ROUTES_PATH.OPERATOR_STEP4,
+                loadComponent: () => import('./pages/step4-otp/step4-otp.component').then(m => m.Step4OtpComponent),
             },
         ]
     },

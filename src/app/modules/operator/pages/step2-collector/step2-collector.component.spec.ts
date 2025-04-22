@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CollectorComponent } from './collector.component';
+import { Step2CollectorComponent } from './step2-collector.component';
 
-describe('CollectorsComponent', () => {
-  let component: CollectorComponent;
-  let fixture: ComponentFixture<CollectorComponent>;
+describe('Step2CollectorComponent', () => {
+  let component: Step2CollectorComponent;
+  let fixture: ComponentFixture<Step2CollectorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CollectorComponent]
+      imports: [Step2CollectorComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CollectorComponent);
+    fixture = TestBed.createComponent(Step2CollectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

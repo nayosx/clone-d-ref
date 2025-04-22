@@ -1,0 +1,24 @@
+<div class="grid justify-content-start mt-4">
+    <div class="col-12 sm:col-12 lg:col-6 bg-white p-4 shadow border-round-2xl">
+        <h3 class="mb-4">Sus instituciones asociadas</h3>
+        @if(isError) {
+            <div class="alert bg-red-bda text-red-bda-dark p-2 border-round-lg" role="alert">
+                Ha ocurrido un error al cargar las instituciones asociadas. Presione "Volver a cargar" ó inténtelo de nuevo más tarde.
+            </div>
+
+            <div class="flex justify-content-center align-items-center mt-4">
+                <p-button label="Volver a cargar" type="button" (click)="getData()" />
+            </div>
+
+        } @else if(isLoading) {
+            <div class="flex justify-content-center align-items-center mt-8">
+                <div class="spinner-border" role="status">
+                    <app-loader-text [text]="'Cargando negocios...'" />
+                </div>
+            </div>
+        } @else if(!isLoading && !isError) {
+            <app-cards [cards]="cards" (cardSelected)="onCardSelected($event)" />
+        }
+        
+    </div>
+</div>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LinkUpComponent } from './link-up.component';
+import { StatusBaseComponent } from './status-base.component';
 
-describe('LinkUpComponent', () => {
-  let component: LinkUpComponent;
-  let fixture: ComponentFixture<LinkUpComponent>;
+describe('StatusBaseComponent', () => {
+  let component: StatusBaseComponent;
+  let fixture: ComponentFixture<StatusBaseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LinkUpComponent]
+      imports: [StatusBaseComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LinkUpComponent);
+    fixture = TestBed.createComponent(StatusBaseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

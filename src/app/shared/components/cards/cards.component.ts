@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Card } from '../../interfaces/card.interface';
+import { Card } from '@shared/interfaces/card.interface';
 import { CommonModule } from '@angular/common';
 import { ImgFallbackDirective } from '@shared/directives/img-fallback.directive';
 
