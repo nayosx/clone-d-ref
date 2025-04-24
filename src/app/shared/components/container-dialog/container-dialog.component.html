@@ -1,0 +1,9 @@
+<p-dialog [(visible)]="visible" modal="true" [closable]="false" [dismissableMask]="false"
+    styleClass="custom-success-dialog">
+
+    <app-container-card-wrapper [cardInfo]="wrapper" />
+
+    <div class="flex justify-content-center align-items-center mb-8">
+        <p-button label="Siguiente" type="button" (click)="onNext()" />
+    </div>
+</p-dialog>

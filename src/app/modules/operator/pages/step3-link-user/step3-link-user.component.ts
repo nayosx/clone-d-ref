@@ -1,6 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { InputDuiNitComponent } from "@shared/components/input-dui-nit/input-dui-nit.component";
+import { StatusBaseComponent } from '@shared/components/status-base/status-base.component';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 
@@ -15,9 +17,10 @@ import { CardModule } from 'primeng/card';
 ],
   templateUrl: './step3-link-user.component.html'
 })
-export class Step3LinkUserComponent implements OnInit {
+export class Step3LinkUserComponent extends StatusBaseComponent implements OnInit {
   form!: FormGroup;
   fb = inject(FormBuilder);
+  router = inject(Router);
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -27,6 +30,7 @@ export class Step3LinkUserComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.form.value);
+    this.router.navigate(['operador', 'step4']);
   }
 
   onCancel(): void {

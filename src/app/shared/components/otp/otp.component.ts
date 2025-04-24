@@ -5,15 +5,17 @@ import { InputTextModule } from 'primeng/inputtext';
 import { timer, Subscription } from 'rxjs';
 import { InputBdComponent } from '../input-bd/input-bd.component';
 import { ButtonModule } from 'primeng/button';
+import { LoaderTextComponent } from "../loader-text/loader-text.component";
 
 @Component({
   selector: 'app-otp',
   imports: [
-    CommonModule, 
-    FormsModule, 
+    CommonModule,
+    FormsModule,
     InputTextModule,
-    ButtonModule
-  ],
+    ButtonModule,
+    LoaderTextComponent
+],
   providers: [
     { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => OtpComponent), multi: true },
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => OtpComponent), multi: true }
@@ -25,15 +27,34 @@ export class OtpComponent extends InputBdComponent implements OnInit {
   private static readonly VALIDATION_REGEX: RegExp = new RegExp(`^[${OtpComponent.ALLOWED_CHARS}]{6}$`);
   private static readonly FILTER_REGEX: RegExp = new RegExp(`[^${OtpComponent.ALLOWED_CHARS}]`, 'g');
 
-  countdown: number = 60;
+  countdown: number = 0;
   private timerSubscription: Subscription | null = null;
 
+  isLoading: boolean = false;
+  isError: boolean = false;
+
   ngOnInit(): void {
-    this.startCountdown();
+    //this.startCountdown();
+    this.getRequestOtp();
   }
   
   ngOnDestroy(): void {
     this.timerSubscription?.unsubscribe();
+  }
+
+  getRequestOtp(): void {
+    this.isLoading = true;
+    this.isError = false;
+
+    timer(2000).subscribe(() => {
+      this.isLoading = false;
+      this.isError = Math.random() < 0.5; 
+      if (!this.isError) {
+        this.startCountdown();
+      } else {
+        
+      }
+    });
   }
   
   startCountdown(): void {
@@ -75,6 +96,6 @@ export class OtpComponent extends InputBdComponent implements OnInit {
   onResendOtp(): void {
     this.value = '';
     this.onChange(this.value);
-    this.startCountdown();
+    this.getRequestOtp();
   }
 }

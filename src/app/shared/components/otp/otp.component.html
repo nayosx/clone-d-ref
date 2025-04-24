@@ -1,3 +1,19 @@
+@if(isError) {
+<div class="alert bg-red-bda text-red-bda-dark p-2 border-round-lg" role="alert">
+  Ha ocurrido un error al cargar el OTP. Presione "Volver a cargar" ó inténtelo de nuevo más tarde.
+</div>
+
+<div class="flex justify-content-center align-items-center mt-4">
+  <p-button label="Volver a cargar" type="button" (click)="getRequestOtp()" />
+</div>
+} @else if (isLoading) {
+<div class="flex justify-content-center align-items-center mt-8">
+  <div class="spinner-border" role="status">
+    <app-loader-text [text]="'Cargando OTP...'" />
+  </div>
+</div>
+
+} @else if(!isLoading && !isError) {
 <div>
   <div class="mb-2">
     <label for="duinit">
@@ -11,6 +27,9 @@
   </div>
   <div class="mt-2 text-sm mt-4">
     <p>¿No has recibido el código?</p>
-    <p-button label="Solicitar nuevo código" severity="primary" type="button" (click)="onResendOtp()" [disabled]="countdown > 0"></p-button>
+    <p-button label="Solicitar nuevo código" severity="primary" type="button" (click)="onResendOtp()"
+      [disabled]="countdown > 0"></p-button>
   </div>
 </div>
+
+}
