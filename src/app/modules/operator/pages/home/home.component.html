@@ -1,11 +1,84 @@
 <div class="grid justify-content-start mt-4">
   <div class="col-12 bg-white p-4 shadow border-round-2xl">
-    <p>Este bloque ocupa la mitad de la pantalla, está alineado a la izquierda y tiene un fondo blanco.</p>
+    <div class="grid">
+      <div class="col-6">
+        <div>
+          <img src="noimage" alt="Negocio" loading="lazy" appImgFallback [style]="{'height': '30px'}" />
+          <p class=""><strong>Datos de pago</strong></p>
+        </div>
+      </div>
+      <div class="col-6 text-right text-sm">
+        <span>Última actualización: DD/MM/AAAA 03:38 p.m.</span>
+      </div>
+    </div>
+
+
+    <div class="grid">
+      <div class="col-4">
+        <div class="bg-gray-bda border-round-lg p-1">
+
+
+          <div class="flex align-items-start">
+            <span [style]="{'width': '100%'}">Empresa colectora</span>
+            <span [style]="{'width': '100%'}">arg</span>
+          </div>
+
+          <div>
+            <span>Tipo de Servicio</span>
+            <span>arg</span>
+          </div>
+
+          <div>
+            <span>Titular</span>
+            <span>arg</span>
+          </div>
+
+
+
+        </div>
+      </div>
+
+
+      <div class="col-4">
+        <div class="bg-gray-bda border-round-lg p-1">
+
+          <div>
+            <span>Tipo de Identificador</span>
+            <span>arg</span>
+          </div>
+
+          <div>
+            <span>Identificador</span>
+            <span>arg</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="col-4">
+        <div class="border-round-lg bg-white p-1 text-right text-sm">
+          <p-button label="Realizar pago" icon="pi pi-arrow-right" iconPos="right" />
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    
+
+    <div class="grid">
+      <div class="col-12">
+        <app-simple-table />
+      </div>
+    </div>
   </div>
 </div>
 
 
-
+<!-- 
 <div class="container">
     <div class="grid">
         <div class="col-4">
@@ -65,4 +138,4 @@
       </div>
       
 </div>
-  
+   -->
